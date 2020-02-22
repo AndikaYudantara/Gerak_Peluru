@@ -1,48 +1,31 @@
-float g = 9.806;
-float m = 0.15;
-float D = 0.0013;
-float step = 0.01;
-float sudut = 35;
-float v0 = 50;
-float x0 = 0;
-float y0 = 0;
-float t0 = 0;
-
-// DRAW //
-int size = 15;
+float g, m, D, step, sudut ,v0, x0, y0, t0;
 
 // ARRAY ADA HAMBATAN //
-FloatList x1;
-FloatList y1;
-FloatList vx1;
-FloatList vy1;
-FloatList t1;
+FloatList x1, y1, vx1, vy1, t1;
 // ARRAY TANPA HAMBATAN //
-FloatList x2;
-FloatList y2;
-FloatList vy2;
-FloatList t2;
+FloatList x2, y2, vy2, t2;
 
 // ADA HAMBATAN //
-float V;
-float ax;
-float ay;
-float x1next;
-float y1next;
-float vx1next;
-float vy1next;
-float t1next;
+float V, ax, ay, x1next, y1next, vx1next, vy1next, t1next;
 // TANPA HAMBATAN //
-float vx2;
-float x2next;
-float y2next;
-float vy2next;
-float t2next;
+float x2next, y2next, vx2, vy2next, t2next;
 
 int i;
+int ball;
 
 void setup() {
   size(800, 400);
+  g = 9.806;
+  m = 0.15;
+  D = 0.0013;
+  step = 0.01;
+  sudut = 35;
+  v0 = 50;
+  x0 = 0;
+  y0 = 0;
+  t0 = 0;
+  
+  ball = 10;
 
   // ADA HAMBATAN //
   x1 = new FloatList();
@@ -101,9 +84,9 @@ void draw() {
 
   noStroke();
   fill(255, 0, 0);
-  ellipse(x1next, height-y1next, size, size);
+  ellipse(x1next, height-y1next, ball, ball);
   fill(0, 0, 255);
-  ellipse(x2next, height-y2next, size, size);
+  ellipse(x2next, height-y2next, ball, ball);
 
   textSize(15);
   fill(0);
@@ -162,8 +145,8 @@ void analitik() {
   float x = x0 + (vx2 * t);
   float y = y0 + (vy2.get(0) * t) - (0.5 * g * t * t);
 
-  ellipse(x, height-y, size/2, size/2);
-  //println(x+" "+x2.get(i)+" "+y+" "+y2.get(i));
+  //ellipse(x, height-y, ball/2, ball/2);
+  println(x+" "+x2.get(i)+" "+y+" "+y2.get(i));
 }
 
 void mousePressed() {
