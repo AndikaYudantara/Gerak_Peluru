@@ -146,7 +146,7 @@ void analitik() {
   float y = y0 + (vy2.get(0) * t) - (0.5 * g * t * t);
 
   //ellipse(x, height-y, ball/2, ball/2);
-  println((x2.get(i)/x)+" "+(y2.get(i)/y));
+  //println(x+" "+x2.get(i)+" "+y+" "+y2.get(i));
 }
 
 //void mousePressed() {
